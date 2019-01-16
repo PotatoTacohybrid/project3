@@ -1,0 +1,16 @@
+{% extends "pinochios/base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block body %}
+<div id="usernameTakenDiv"></div>
+<form action="/register" id="registerSubmit" method="POST">
+    {% csrf_token %}
+    <input id="registerUsername" name="username" type="text" required>
+    <input id="registerPassword" name="password" type="password" required>
+    <input id="registerRePassword" type="password" required>
+    <button id="registerSubmitButton" type="submit">Submit</button>
+</form>
+{% endblock %}

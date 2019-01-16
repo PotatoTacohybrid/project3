@@ -1,0 +1,99 @@
+{% extends "pinochios/base.html" %}
+
+{% block title %}
+Index 
+{% endblock %}
+
+{% block body %}
+<input type="hidden" value="{{ user_id }}"/>
+<h1 class="text-center">Regular Pizzas</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for pizza in regular_pizzas %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ pizza.name }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary addPizzaMenuItem">
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <input type="hidden" value="{{pizza.small_price}}"/>
+                            <input type="hidden" value="{{pizza.large_price}}"/>
+                            <input type="hidden" value="{{pizza.name}}"/>
+                            <input type="hidden" value="Regular Pizza"/>
+
+                            <small class="text-muted">Price: {{ pizza.small_price }}/{{ pizza.large_price }} </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<h1 class="text-center">Sicilian Pizzas</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for pizza in sicilian_pizzas %}
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ pizza.name }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary addPizzaMenuItem">
+                                    Add to Cart
+                                </button>
+                            </div>
+                            <input type="hidden" value="{{pizza.small_price}}"/>
+                            <input type="hidden" value="{{pizza.large_price}}"/>
+                            <input type="hidden" value="{{pizza.name}}"/>
+                            <input type="hidden" value="Sicilian Pizza"/>
+                            <small class="text-muted">Price: {{ pizza.small_price }}/{{ pizza.large_price }} </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<h1 class="text-center">Pastas</h1>
+<div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for pasta in pastas %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ pasta.name }}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary addMenuItem">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                                <input type="hidden" value="{{pasta.price}}"/>
+                                <input type="hidden" value="{{pasta.name}}"/>
+                                <input type="hidden" value="Pasta"/>
+                                <small class="text-muted">Price: {{ pasta.price }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

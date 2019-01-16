@@ -1,0 +1,9 @@
+{% extends "pinochios/base.html" %}
+
+{% block body %}
+<ul>
+{% for item in cart %}
+ <li>{{ item }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
