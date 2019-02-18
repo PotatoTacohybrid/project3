@@ -11,13 +11,16 @@ from .models import Topping, Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, D
 
 # Create your views here.
 def index(request):
+
+    # Checks to make sure user is loggedd in
     user = request.user
     if user is None:
         return render(reserve('login_view'))
-    amount = Shopping_Cart_Item.objects.filter(user_id=user.id).count()
+
+
 
     context = {
-        "amount": amount,
+        "amount": Shopping_Cart_Item.objects.filter(user_id=user.id).count(),
         "regular_pizzas": Regular_Pizza.objects.all(),
         "sicilian_pizzas": Sicilian_Pizza.objects.all(),
         "pastas": Pasta.objects.all(),
